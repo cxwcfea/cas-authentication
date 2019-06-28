@@ -1,3 +1,9 @@
+
+Forked from https://github.com/kylepixel/cas-authentication because it needed to get issues fixed, namely:
+
+* CAS parameter `renew` ommitted when option `renew = false`
+* Fixed issue related to relative paths when accessing CAS
+
 # Express CAS Authentication
 
 This is a CAS authentication library designed to be used with an Express server.
@@ -14,7 +20,7 @@ It also provides two route endpoint functions:
 
 ## Installation
 
-    npm install cas-authentication
+    npm install keeps-cas-authentication
 
 ## Setup
 
@@ -37,18 +43,18 @@ var cas = new CASAuthentication({
 
 ### Options
 
-| Name | Type | Description | Default |
-|:-----|:----:|:------------|:-------:|
-| cas_url | _string_ | The URL of the CAS server. | _(required)_ |
-| service_url | _string_ | The URL of the application which is registered with the CAS server as a valid service. | _(required)_ |
-| cas_version | _"1.0"\|"2.0\|"3.0"\|"saml1.1"_ | The CAS protocol version. | _"3.0"_ |
-| renew | _boolean_ | If true, an unauthenticated client will be required to login to the CAS system regardless of whether a single sign-on session exists. | _false_ |
-| is_dev_mode | _boolean_ | If true, no CAS authentication will be used and the session CAS variable will be set to whatever user is specified as _dev_mode_user_. | _false_ |
-| dev_mode_user | _string_ | The CAS user to use if dev mode is active. | _""_ |
-| dev_mode_info | _Object_ | The CAS user information to use if dev mode is active. | _{}_ |
-| session_name | _string_ | The name of the session variable that will store the CAS user once they are authenticated. | _"cas_user"_ |
-| session_info | _string_ | The name of the session variable that will store the CAS user information once they are authenticated. If set to false (or something that evaluates as false), the additional information supplied by the CAS will not be forwarded. This will not work with CAS 1.0, as it does not support additional user information. | _false_ |
-| destroy_session | _boolean_ | If true, the logout function will destroy the entire session upon CAS logout. Otherwise, it will only delete the session variable storing the CAS user. | _false_ |
+| Name            |              Type               | Description                                                                                                                                                                                                                                                                                                               |   Default    |
+| :-------------- | :-----------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :----------: |
+| cas_url         |            _string_             | The URL of the CAS server.                                                                                                                                                                                                                                                                                                | _(required)_ |
+| service_url     |            _string_             | The URL of the application which is registered with the CAS server as a valid service.                                                                                                                                                                                                                                    | _(required)_ |
+| cas_version     | _"1.0"\|"2.0\|"3.0"\|"saml1.1"_ | The CAS protocol version.                                                                                                                                                                                                                                                                                                 |   _"3.0"_    |
+| renew           |            _boolean_            | If true, an unauthenticated client will be required to login to the CAS system regardless of whether a single sign-on session exists.                                                                                                                                                                                     |   _false_    |
+| is_dev_mode     |            _boolean_            | If true, no CAS authentication will be used and the session CAS variable will be set to whatever user is specified as _dev_mode_user_.                                                                                                                                                                                    |   _false_    |
+| dev_mode_user   |            _string_             | The CAS user to use if dev mode is active.                                                                                                                                                                                                                                                                                |     _""_     |
+| dev_mode_info   |            _Object_             | The CAS user information to use if dev mode is active.                                                                                                                                                                                                                                                                    |     _{}_     |
+| session_name    |            _string_             | The name of the session variable that will store the CAS user once they are authenticated.                                                                                                                                                                                                                                | _"cas_user"_ |
+| session_info    |            _string_             | The name of the session variable that will store the CAS user information once they are authenticated. If set to false (or something that evaluates as false), the additional information supplied by the CAS will not be forwarded. This will not work with CAS 1.0, as it does not support additional user information. |   _false_    |
+| destroy_session |            _boolean_            | If true, the logout function will destroy the entire session upon CAS logout. Otherwise, it will only delete the session variable storing the CAS user.                                                                                                                                                                   |   _false_    |
 
 ## Usage
 
