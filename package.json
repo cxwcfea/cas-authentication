@@ -1,6 +1,6 @@
 {
-    "name": "keeps-cas-authentication",
-    "version": "1.0.0",
+    "name": "@keepsolutions/cas-authentication",
+    "version": "1.0.1",
     "description": "A CAS authentication library designed to be used as middleware for an Express server.",
     "keywords": [
         "cas",
